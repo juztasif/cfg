@@ -1,5 +1,5 @@
 # Initialize Oh My Posh and Zoxide
-(@(& '~/AppData/Local/Programs/oh-my-posh/bin/oh-my-posh.exe' init pwsh --config='~\AppData\Local\Programs\oh-my-posh\themes\amro.omp.json' --print) -join "`n") | Invoke-Expression
+#(@(& '~/AppData/Local/Programs/oh-my-posh/bin/oh-my-posh.exe' init pwsh --config='~\AppData\Local\Programs\oh-my-posh\themes\amro.omp.json' --print) -join "`n") | Invoke-Expression
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
 
@@ -88,6 +88,13 @@ function unalias {
     Write-Host "All aliases have been removed for this session." -ForegroundColor Green
 }
 
-#Clear-Host
+function ps2 {
+    function global:Prompt {
+    $cwd = Split-Path -Leaf (Get-Location)
+    "$cwd> "
+    }
+}
 
+Clear-Host
 i-ml man
+
