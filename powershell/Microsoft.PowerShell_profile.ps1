@@ -6,10 +6,10 @@ Invoke-Expression (& { (zoxide init powershell | Out-String) })
 # Aliases
 Set-Alias eth get-netadapter
 Set-Alias rr powershell
-Set-Alias zd z
 Set-Alias c clear
 Set-Alias e nvim
 Set-Alias k code
+Set-Alias cr cursor
 Set-Alias nm nvim
 Set-Alias np notepad
 Set-Alias sd stop-computer
@@ -24,7 +24,7 @@ function q { exit }
 # Navigation Functions
 function ~ { Set-Location ~ }
 function to ($loc) { Set-Location $loc }
-function ex { param([string]$Path = "./") explorer $Path }
+function ex ($loc) { explorer ".\$loc" }
 function dk { Set-Location ~\Desktop }
 function pc { Set-Location ~\Pictures }
 function dn { Set-Location ~\Downloads }
