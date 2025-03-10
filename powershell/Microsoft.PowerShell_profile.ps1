@@ -34,11 +34,12 @@ function dc { Set-Location ~\Documents }
 # Winget Package Management
 function ws ($name) { winget search $name }
 function wi ($name) { winget install $name }
-function wii ($name) { winget install $name.$name }
+function wii ($name) { winget install "$name.$name" }
 function wu ($name) { winget upgrade $name }
-function wuu ($name) { winget upgrade $name.$name }
+function wuu ($name) { winget upgrade "$name.$name" }
 function wl ($name) { winget list $name }
 function wr ($name) { winget remove $name }
+function wrr ($name) { winget remove "$name.$name" }
 function wua { winget upgrade --all }
 
 
