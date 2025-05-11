@@ -88,12 +88,13 @@ function w {
     switch ($cmd) {
         "s"  { winget search $name }
         "i"  { winget install $name }
-        "ii" { winget install "$name.$name" }
+        "i2" { winget install "$name.$name" }
         "u"  { winget upgrade $name }
         "lu" { winget list --upgrade-available }
         "uu" { winget upgrade "$name.$name" }
         "l"  { winget list $name }
         "r"  { winget remove $name }
+        "r2"  { winget remove $name.$name }
         "ua" { winget upgrade --all }
         default {
             Write-Host "`nUsage: w <command> [app_name]"
