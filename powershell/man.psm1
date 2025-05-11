@@ -72,15 +72,11 @@ function sm {
             Write-Host @"
 
     Navigation:
-        to dk - Navigates to the Desktop directory
-        to pc - Navigates to the Pictures directory
-        to dn - Navigates to the Downloads directory
-        to dc - Navigates to the Documents directory
-        to wk - Navigates to the Work directory
-        to ws - Navigates to Coding Workspaces directory
-        ws    - Goes to Coding Workspaces root directory
-        ws py - Navigates to Python workspace directory
-        ws wd - Navigates to WebDev workspace directory
+        dk - Navigates to the Desktop directory
+        dn - Navigates to the Downloads directory
+        dc - Navigates to the Documents directory
+        pc - Navigates to the Pictures directory
+        vd - Navigates to the Videos directory
     
 
 "@ -ForegroundColor Cyan
