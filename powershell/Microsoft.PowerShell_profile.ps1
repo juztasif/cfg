@@ -44,20 +44,12 @@ function ec {
 
 
 # Main Folder Navigation
-function to {
-    param (
-        [string]$location
-    )
-    switch ($location) {
-        "dk" { Set-Location ~\Desktop }
-        "pc" { Set-Location ~\Pictures }
-        "dn" { Set-Location ~\Downloads }
-        "dc" { Set-Location ~\Documents }
-        "wk" { Set-Location ~\Work }
-        "ws" { Set-Location "D:\Coding Workspaces" }
-        default { Write-Host "Location '$location' not recognized!" -ForegroundColor Red }
-    }
-}
+function dk { cd ~/Desktop }
+function dn { cd ~/Downloads }
+function dc { cd ~/Documents }
+function pc { cd ~/Pictures }
+function vd { cd ~/Videos }
+
 # Git Commands
 # function git {
 #     param (
