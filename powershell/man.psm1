@@ -114,13 +114,13 @@ function sm {
     Winget:
         w s   - Searches for an application in Winget
         w i   - Installs an application via Winget
-        w ii  - Installs an app using name.name format
-        
+        w i2  - Installs an app using name.name format
         w u   - Upgrades a specific application
         w lu  - Lists applications with available upgrades
         w uu  - Upgrades an app using name.name format
         w l   - Lists installed applications
         w r   - Removes an application
+        w r2  - Removes an app using name.name format
         w ua  - Upgrades all installed applications
     
 
