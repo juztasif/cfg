@@ -1,7 +1,7 @@
 # ADB PowerShell Aliases
 
-Set-Alias adb "c:\Tools\ADB\adb"
-Set-Alias gdb "c:\Tools\ADB\uad_gui-windows"
+$env:TOOLS_ADB = "$HOME\Documents\Tools\adb"
+$env:TOOLS_DIMMER = "$HOME\Documents\Tools\dimmer"
 
 function adb-r($name) {adb uninstall --user 0 $name}
 
