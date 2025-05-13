@@ -50,6 +50,14 @@ function dc { cd ~/Documents }
 function pc { cd ~/Pictures }
 function vd { cd ~/Videos }
 
+# Workspace Navigation
+function ws { 
+    param ([string]$loc)
+    switch ($loc) {
+        ""{ cd $HOME\Workspace }
+    }
+}
+
 # Git Commands
 # function git {
 #     param (
@@ -160,6 +168,16 @@ function unzip {
     param($file = "*.zip", $dest = $pwd)
     Write-Host "Extracting $file to $dest" -ForegroundColor Cyan
     Expand-Archive -Path (Get-Item $file).FullName -DestinationPath $dest -Force
+}
+
+# File Compression
+function zip {
+    param(
+        [string]$source = $pwd,
+        [string]$destination = "$(Split-Path -Leaf $source).zip"
+    )
+    Write-Host "Creating zip archive $destination from $source" -ForegroundColor Green
+    Compress-Archive -Path (Join-Path $source '*') -DestinationPath $destination -Force
 }
 
 # Text Search Functions
