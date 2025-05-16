@@ -1,0 +1,98 @@
+#!/bin/bash
+# Debian-specific Bash Aliases (.deb_aliases.sh)
+
+# General Defaults
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias grep='grep --color=auto'
+alias rf='rm -rf'
+alias ni='touch'
+
+# General Utilities
+alias rr='source ~/.arch_aliases.sh && clear'
+alias c='clear'
+alias q='exit'
+alias nv='nvim'
+alias e='nvim'
+alias v='vim'
+alias h='history'
+alias d='date'
+alias t='time'
+alias cl='clear; ls'
+
+# Package Management - APT
+at() {
+  case "$1" in
+    i) shift; sudo apt install "$@" ;;
+    up) sudo apt update && sudo apt upgrade -y ;;
+    li) apt list --installed ;;
+    sw) shift; apt show "$@" ;;
+    fu) sudo apt full-upgrade -y ;;
+    a_repo) shift; sudo add-apt-repository "$@" ;;
+    r_repo) shift; sudo add-apt-repository --remove "$@" ;;
+    *) echo "Unknown apt command: $1" ;;
+  esac
+}
+
+# Package Management - Nala
+nl() {
+  case "$1" in
+    i) shift; sudo nala install -y "$@" ;;
+    up) sudo nala update && sudo nala upgrade -y ;;
+    li) nala list --installed ;;
+    sw) shift; nala show "$@" ;;
+    *) echo "Unknown nala command: $1" ;;
+  esac
+}
+
+# Package Management - DPKG
+dp() {
+  case "$1" in
+    i) shift; sudo dpkg -i "$@" ;;
+    r) shift; sudo dpkg -r "$@" ;;
+    li) dpkg -l ;;
+    sw) shift; dpkg -s "$@" ;;
+    *) echo "Unknown dpkg command: $1" ;;
+  esac
+}
+
+# Package Management - Quick Commands
+alias i='nala i'
+alias r='sudo apt remove --purge -y'
+alias rc='sudo apt autoremove -y && sudo apt autoclean'
+alias up='nala up'
+
+# Navigation
+alias home='cd ~'
+alias ~='cd ~'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias dn='cd ~/Downloads'
+alias dc='cd ~/Documents'
+alias pc='cd ~/Pictures'
+alias dk='cd ~/Desktop'
+
+# File Editing with Case Statement
+ec() {
+  case "$1" in
+    rc) nvim ~/.zshrc ;;
+    al) nvim ~/.deb_aliases.sh ;;
+    nv) nvim ~/.config/nvim/init.lua ;;
+    tmx) nvim ~/.config/tmux/tmux.conf ;;
+    *) echo "    Wrong Input    " ;;
+  esac
+}
+
+# System Control with Case Statement
+sys() {
+  case "$1" in
+    sl) systemctl suspend && exit ;;
+    sd) systemctl poweroff ;;
+    rb) systemctl reboot ;;
+    lo) pkill -KILL -u "$USER" ;;
+    *) echo "Unknown sys command: $1" ;;
+  esac
+}
