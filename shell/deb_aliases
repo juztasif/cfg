@@ -79,7 +79,7 @@ alias dk='cd ~/Desktop'
 ec() {
   case "$1" in
     rc) nvim ~/.zshrc ;;
-    al) nvim ~/.deb_aliases.sh ;;
+    al) nvim ~/.deb_aliases ;;
     nv) nvim ~/.config/nvim/init.vim ;;
     tmx) nvim ~/.config/tmux/tmux.conf ;;
     *) echo "    Wrong Input    " ;;
