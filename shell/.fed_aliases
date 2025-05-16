@@ -1,5 +1,5 @@
 #!/bin/bash
-# Fedora-specific Bash Aliases (.fed_aliases.sh)
+# Fedora Aliases
 
 # General Defaults
 alias ll='ls -alF'
@@ -10,7 +10,7 @@ alias rf='rm -rf'
 alias ni='touch'
 
 # General Utilities
-alias rr='source ~/.arch_aliases.sh && clear'
+alias rr='source ~/.fed_aliases && clear'
 alias c='clear'
 alias q='exit'
 alias nv='nvim'
