@@ -80,7 +80,7 @@ ec() {
   case "$1" in
     rc) nvim ~/.zshrc ;;
     al) nvim ~/.deb_aliases.sh ;;
-    nv) nvim ~/.config/nvim/init.lua ;;
+    nv) nvim ~/.config/nvim/init.vim ;;
     tmx) nvim ~/.config/tmux/tmux.conf ;;
     *) echo "    Wrong Input    " ;;
   esac
