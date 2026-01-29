@@ -174,4 +174,5 @@ wget -q https://raw.githubusercontent.com/juztasif/cfg/refs/heads/files/shell/.i
 # Deleting Script Lines    #tag-SetupScript
 sed -i "/#tag-SetupScript/d" ~/.bash_aliases    #tag-SetupScript
 #------------------------------------------------------------------------------ #tag-SetupScript
+echo "source ~/.bash_aliases" >> .bashrc    #tag-SetupScript
 source ~/.bash_aliases    #tag-SetupScript
