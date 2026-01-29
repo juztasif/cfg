@@ -12,8 +12,7 @@ alias rr='source ~/.deb_aliases && clear'
 alias c='clear'
 alias q='exit'
 alias nv='nvim'
-alias e='nvim'
-alias v='vim'
+alias e='vim'
 alias h='history'
 alias d='date'
 alias t='time'
@@ -49,18 +48,18 @@ dnf() {    #tag-FedoraBased
 
 
 # Local Package Management - DPKG
-dbp() {    #tag-DebianBased
-  cmd="$1"; shift    #tag-FedoraBased
-  case "$cmd" in    #tag-FedoraBased
+db() {    #tag-DebianBased
+  cmd="$1"; shift    #tag-DebianBased
+  case "$cmd" in    #tag-DebianBased
     i) sudo dpkg -i "$@" ;;    #tag-DebianBased
     r) sudo dpkg -r "$@" ;;    #tag-DebianBased
     p) sudo dpkg -P "$@" ;;    #tag-DebianBased
-    li) dpkg -l ;;    #tag-DebianBased
+    li) dpkg -l "$@" ;;    #tag-DebianBased
     sw) dpkg -s "$@" ;;    #tag-DebianBased
     *) sudo dpkg "$cmd" "$@" ;;   #tag-DebianBased
   esac    #tag-DebianBased
 }    #tag-DebianBased
-rpm() {    #tag-FedoraBased
+rp() {    #tag-FedoraBased
   cmd="$1"; shift    #tag-FedoraBased
   case "$cmd" in    #tag-FedoraBased
     i) sudo rpm -i "$@" ;;    #tag-FedoraBased
@@ -101,10 +100,10 @@ alias dk='cd ~/Desktop'
 # File Editing with Case Statement
 ec() {
   case "$1" in
-    rc) nvim ~/.zshrc ;;
-    al) nvim ~/.bash_aliases ;;
-    nv) nvim ~/.config/nvim/init.vim ;;
-    tmx) nvim ~/.config/tmux/tmux.conf ;;
+    rc) vi ~/.bashrc ;;
+    al) vi ~/.bash_aliases ;;
+    nv) vi ~/.config/vi/init.vim ;;
+    tmx) vi ~/.config/tmux/tmux.conf ;;
     *) echo "    Wrong Input    " ;;
   esac
 }
@@ -167,7 +166,7 @@ else    #tag-SetupScript
      sed -i "s/    #tag-PowerOptions//" ~/.bash_aliases    #tag-SetupScript
 fi    #tag-SetupScript
 #------------------------------------------------------------------------------ #tag-SetupScript
-wget -q https://raw.githubusercontent.com/juztasif/cfg/refs/heads/files/nvim/init.vim -O ~/.vimrc || echo -e "\n\tvimrc Setup Failed\n"    #tag-SetupScript
+wget -q https://raw.githubusercontent.com/juztasif/cfg/refs/heads/files/vi/init.vim -O ~/.vimrc || echo -e "\n\tvimrc Setup Failed\n"    #tag-SetupScript
 wget -q https://raw.githubusercontent.com/juztasif/cfg/refs/heads/files/shell/.inputrc -O ~/.inputrc || echo -e "\n\tinputrc Setup Failed\n"    #tag-SetupScript
 # Sourcing Trimmed Script    #tag-SetupScript
 #------------------------------------------------------------------------------ #tag-SetupScript
