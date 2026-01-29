@@ -123,7 +123,6 @@ sys() {
   esac
 }
 
-    #tag-PowerOptions
 # Power Menu Shortcuts    #tag-PowerOptions
 alias sl='sudo systemctl suspend && exit'    #tag-PowerOptions
 alias sd='sudo systemctl poweroff'    #tag-PowerOptions
@@ -139,11 +138,8 @@ else
 fi
 #------------------------------------------------------------------------------------------
 
-
 #------------------------------------------------------------------------------ #tag-SetupScript
-# Setup Script    #tag-SetupScript
-#------------------------------------------------------------------------------ #tag-SetupScript
-# Getting Distro Tags    #tag-SetupScript
+#                                 Setup Script                                  #tag-SetupScript
 #------------------------------------------------------------------------------ #tag-SetupScript
 upstream_distros=(Debian Fedora Arch)    #tag-SetupScript
 if command -v apt >/dev/null 2>&1 || command -v nala >/dev/null 2>&1; then    #tag-SetupScript
@@ -173,12 +169,9 @@ if grep -qi microsoft /proc/version || grep -qi microsoft /proc/sys/kernel/osrel
 else    #tag-SetupScript
      sed -i "s/^[[:space:]]*#tag-PowerOptions[[:space:]]*//" ~/.bash_aliases    #tag-SetupScript
 fi    #tag-SetupScript
-    #tag-SetupScript
-sed -i "/#tag-SetupScript/d" ~/.bash_aliases    #tag-SetupScript
 #------------------------------------------------------------------------------ #tag-SetupScript
-wget -q https://raw.githubusercontent.com/juztasif/cfg/refs/heads/files/vi/init.vim -O ~/.vimrc || echo -e "\n\.vimrc Setup Failed\n"    #tag-SetupScript
-wget -q https://raw.githubusercontent.com/juztasif/cfg/refs/heads/files/shell/.inputrc -O ~/.inputrc || echo -e "\n\.inputrc Setup Failed\n"    #tag-SetupScript
-    #tag-SetupScript
+sed -i "/#tag-SetupScript/d" ~/.bash_aliases    #tag-SetupScript
 #------------------------------------------------------------------------------ #tag-SetupScript
 echo "source ~/.bash_aliases" >> .bashrc    #tag-SetupScript
 source ~/.bash_aliases    #tag-SetupScript
+#------------------------------------------------------------------------------ #tag-SetupScript
