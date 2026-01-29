@@ -163,11 +163,11 @@ for distro in "${other_distros[@]}"; do    #tag-SetupScript
 done    #tag-SetupScript
 #------------------------------------------------------------------------------ #tag-SetupScript
 untag_target="#tag-${current_distro}Based"    #tag-SetupScript
-sed -i "s/^[[:space:]]*$untag_target[[:space:]]*//" ~/.bash_aliases    #tag-SetupScript
+sed -i "s|[[:space:]]*$untag_target[[:space:]]*||g" ~/.bash_aliases    #tag-SetupScript
 if grep -qi microsoft /proc/version || grep -qi microsoft /proc/sys/kernel/osrelease; then    #tag-SetupScript
       sed -i "/#tag-PowerOptions/d" ~/.bash_aliases    #tag-SetupScript
 else    #tag-SetupScript
-     sed -i "s/^[[:space:]]*#tag-PowerOptions[[:space:]]*//" ~/.bash_aliases    #tag-SetupScript
+     sed -i "s|[[:space:]]*#tag-PowerOptions[[:space:]]*||g" ~/.bash_aliases    #tag-SetupScript
 fi    #tag-SetupScript
 #------------------------------------------------------------------------------ #tag-SetupScript
 sed -i "/#tag-SetupScript/d" ~/.bash_aliases    #tag-SetupScript
