@@ -64,9 +64,9 @@ rp() {    #tag-FedoraBased
   case "$cmd" in    #tag-FedoraBased
     i) sudo rpm -i "$@" ;;    #tag-FedoraBased
     r) sudo rpm -e "$@" ;;    #tag-FedoraBased
-    q) rpm -q "$@" ;;         #tag-FedoraBased
-    l) rpm -qa ;;                   #tag-FedoraBased
-    K) rpm -K "$@" ;;   # check package signature
+    q) rpm -q "$@" ;;    #tag-FedoraBased
+    l) rpm -qa ;;    #tag-FedoraBased
+    K) rpm -K "$@" ;;   #tag-FedoraBased
     *) command rpm "$cmd" "$@";;    #tag-FedoraBased
   esac    #tag-FedoraBased
 }    #tag-FedoraBased
@@ -139,39 +139,46 @@ else
 fi
 #------------------------------------------------------------------------------------------
 
+
 #------------------------------------------------------------------------------ #tag-SetupScript
 # Setup Script    #tag-SetupScript
 #------------------------------------------------------------------------------ #tag-SetupScript
 # Getting Distro Tags    #tag-SetupScript
+#------------------------------------------------------------------------------ #tag-SetupScript
+upstream_distros=(Debian Fedora Arch)    #tag-SetupScript
 if command -v apt >/dev/null 2>&1 || command -v nala >/dev/null 2>&1; then    #tag-SetupScript
-    purge_distro="Fedora"    #tag-SetupScript
-    sudo dnf install -y curl wget git    #tag-SetupScript
+    sudo apt install -y nala curl wget git tmux neovim zoxide    #tag-SetupScript
+    current_distro="Debian"    #tag-SetupScript
 elif command -v dnf >/dev/null 2>&1; then    #tag-SetupScript
-    sudo apt install -y nala curl wget git tmux neovim zoxide nala    #tag-SetupScript
-    purge_distro="Debian"    #tag-SetupScript
+    sudo dnf install -y curl wget git    #tag-SetupScript
+    current_distro="Fedora"   #tag-SetupScript
+elif command -v pacman >/dev/null 2>&1; then    #tag-SetupScript
+    current_distro="Arch"   #tag-SetupScript
 fi    #tag-SetupScript
-    #tag-SetupScript
-target="#tag-${purge_distro}Based"    #tag-SetupScript
 #------------------------------------------------------------------------------ #tag-SetupScript
-# Logging 
-grep "$target" ~/.bash_aliases > log    #tag-SetupScript
+other_distros=()    #tag-SetupScript
+for distro in "${upstream_distros[@]}"; do    #tag-SetupScript
+    [[ "$distro" != "$current_distro" ]] && other_distros+=("$distro")    #tag-SetupScript
+done    #tag-SetupScript
 #------------------------------------------------------------------------------ #tag-SetupScript
-# Deleting Unrelated Lines    #tag-SetupScript
-sed -i "/$target/d" ~/.bash_aliases    #tag-SetupScript
+for distro in "${other_distros[@]}"; do    #tag-SetupScript
+    del_line_target="#tag-${distro}Based"    #tag-SetupScript
+    sed -i "/$del_line_target/d" ~/.bash_aliases    #tag-SetupScript
+done    #tag-SetupScript
 #------------------------------------------------------------------------------ #tag-SetupScript
-# Removing VM Commands    #tag-SetupScript
-if grep -qi microsoft /proc/ || grep -qi microsoft /proc/sys/kernel/osrelease; then    #tag-SetupScript
+untag_target="#tag-${current_distro}Based"    #tag-SetupScript
+sed -i "s/^[[:space:]]*$untag_target[[:space:]]*//" ~/.bash_aliases    #tag-SetupScript
+if grep -qi microsoft /proc/version || grep -qi microsoft /proc/sys/kernel/osrelease; then    #tag-SetupScript
       sed -i "/#tag-PowerOptions/d" ~/.bash_aliases    #tag-SetupScript
 else    #tag-SetupScript
-     sed -i "s/    #tag-PowerOptions//" ~/.bash_aliases    #tag-SetupScript
+     sed -i "s/^[[:space:]]*#tag-PowerOptions[[:space:]]*//" ~/.bash_aliases    #tag-SetupScript
 fi    #tag-SetupScript
-#------------------------------------------------------------------------------ #tag-SetupScript
-wget -q https://raw.githubusercontent.com/juztasif/cfg/refs/heads/files/vi/init.vim -O ~/.vimrc || echo -e "\n\tvimrc Setup Failed\n"    #tag-SetupScript
-wget -q https://raw.githubusercontent.com/juztasif/cfg/refs/heads/files/shell/.inputrc -O ~/.inputrc || echo -e "\n\tinputrc Setup Failed\n"    #tag-SetupScript
-# Sourcing Trimmed Script    #tag-SetupScript
-#------------------------------------------------------------------------------ #tag-SetupScript
-# Deleting Script Lines    #tag-SetupScript
+    #tag-SetupScript
 sed -i "/#tag-SetupScript/d" ~/.bash_aliases    #tag-SetupScript
+#------------------------------------------------------------------------------ #tag-SetupScript
+wget -q https://raw.githubusercontent.com/juztasif/cfg/refs/heads/files/vi/init.vim -O ~/.vimrc || echo -e "\n\.vimrc Setup Failed\n"    #tag-SetupScript
+wget -q https://raw.githubusercontent.com/juztasif/cfg/refs/heads/files/shell/.inputrc -O ~/.inputrc || echo -e "\n\.inputrc Setup Failed\n"    #tag-SetupScript
+    #tag-SetupScript
 #------------------------------------------------------------------------------ #tag-SetupScript
 echo "source ~/.bash_aliases" >> .bashrc    #tag-SetupScript
 source ~/.bash_aliases    #tag-SetupScript
