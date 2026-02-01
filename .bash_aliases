@@ -76,14 +76,14 @@ alias i='sudo nala install -y'    #tag-DebianBased
 alias r='sudo nala remove -y'    #tag-DebianBased
 alias p='sudo nala purge -y'    #tag-DebianBased
 alias cln='sudo nala autoremove -y && sudo nala autoclean -y'    #tag-DebianBased
-alias udup='sudo nala update -y && sudo nala upgrade -y'    #tag-DebianBased (redundant)
-alias up='sudo nala upgrade -y'    #tag-DebianBased (works good)
-alias ud='sudo nala update -y'    #tag-DebianBased (updates metadata i guess)
+alias udup='sudo nala update -y && sudo nala upgrade -y'    #tag-DebianBased #(redundant)
+alias up='sudo nala upgrade -y'    #tag-DebianBased #(works good)
+alias ud='sudo nala update -y'    #tag-DebianBased #(updates metadata i guess)
 alias li='nala list --installed' #tag-DebianBased
 alias i='sudo dnf install'    #tag-FedoraBased
 alias li='dnf list installed' #tag-FedoraBased
 alias r='sudo dnf remove'    #tag-FedoraBased
-alias up='sudo dnf upgrade -y'    #tag-FedoraBased  (fedora doesn't have an upgrade and update like debian)
+alias up='sudo dnf upgrade -y'    #tag-FedoraBased  #(fedora doesn't have an upgrade and update like debian)
 
 # Navigation
 alias home='cd ~'
