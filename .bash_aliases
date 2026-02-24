@@ -170,7 +170,7 @@ else    #tag-SetupScript
      sed -i "s|[[:space:]]*#tag-PowerOptions.*||g" ~/.bash_aliases    #tag-SetupScript
 fi    #tag-SetupScript
 #------------------------------------------------------------------------------ #tag-SetupScript
-sed -i "/#tag-SetupScript/d" ~/.bash_aliases    #tag-SetupScript
+sed -i "/#tag-SetupScript\|sed/d" ~/.bash_aliases    #tag-SetupScript
 #------------------------------------------------------------------------------ #tag-SetupScript
 echo "source ~/.bash_aliases" >> .bashrc    #tag-SetupScript
 source ~/.bash_aliases    #tag-SetupScript
