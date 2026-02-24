@@ -8,7 +8,7 @@ alias rf='rm -rf'
 alias ni='touch'
 
 # General Utilities
-alias rr='source ~/.deb_aliases && clear'
+alias rr='source ~/.bash_aliases && clear'
 alias c='clear'
 alias q='exit'
 alias nv='nvim'
@@ -172,6 +172,5 @@ fi    #tag-SetupScript
 #------------------------------------------------------------------------------ #tag-SetupScript
 sed -i "/#tag-SetupScript\|sed/d" ~/.bash_aliases    #tag-SetupScript
 #------------------------------------------------------------------------------ #tag-SetupScript
-echo "source ~/.bash_aliases" >> .bashrc    #tag-SetupScript
 source ~/.bash_aliases    #tag-SetupScript
 #------------------------------------------------------------------------------ #tag-SetupScript
