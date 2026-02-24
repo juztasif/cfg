@@ -18,7 +18,7 @@ alias d='date'
 alias t='time'
 alias cl='clear; ls'
 
-# Repo Package Management - APT
+# Package Management Function
 nl() {    #tag-DebianBased
   case "$1" in    #tag-DebianBased
     i) shift; sudo nala install "$@" ;;    #tag-DebianBased
@@ -31,7 +31,7 @@ nl() {    #tag-DebianBased
     *) command nala "$@" ;;    #tag-DebianBased
   esac    #tag-DebianBased
 }    #tag-DebianBased
-dnf() {    #tag-FedoraBased
+df() {    #tag-FedoraBased
   case "$1" in    #tag-FedoraBased
     i)   shift; sudo dnf install "$@" ;;    #tag-FedoraBased
     up)  sudo dnf upgrade --refresh -y ;;    #tag-FedoraBased
@@ -47,7 +47,7 @@ dnf() {    #tag-FedoraBased
 }   #tag-FedoraBased
 
 
-# Local Package Management - DPKG
+# Local Package Management Function
 db() {    #tag-DebianBased
   cmd="$1"; shift    #tag-DebianBased
   case "$cmd" in    #tag-DebianBased
@@ -102,7 +102,7 @@ ec() {
   case "$1" in
     rc) vi ~/.bashrc ;;
     al) vi ~/.bash_aliases ;;
-    nv) vi ~/.config/vi/init.vim ;;
+    vi) vi ~/.vimrc ;;
     tmx) vi ~/.config/tmux/tmux.conf ;;
     *) echo "    Wrong Input    " ;;
   esac
@@ -112,11 +112,11 @@ ec() {
 sys() {
   cmd="$1"; shift   
   case "$cmd" in
-    str) sudo systemctl start "$@" ;;
-    st) sudo systemctl status "$@" ;;
+    st) sudo systemctl start "$@" ;;
+    s) sudo systemctl status "$@" ;;
     e) sudo systemctl enable "$@" ;;
     en) sudo systemctl enable --now "$@" ;;
-    stp) sudo systemctl stop "$@" ;;
+    sp) sudo systemctl stop "$@" ;;
     d) sudo systemctl disable "$@" ;;
     dn) sudo systemctl disable --now "$@" ;;
     *) echo "Unknown sys command: $cmd" ;;
